@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_gravity="center"
+    android:layout_width="300dp"
+    android:layout_height="match_parent">
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Check Network Connection"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:background="#B71C1C" />
+
+    <RadioGroup
+        android:background="#40ffffff"
+        android:id="@+id/Custom_radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+        android:id="@+id/Custom_retry_rbt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Retry" />
+
+        <RadioButton
+            android:id="@+id/Custom_exit_rbt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Exit" />
+
+    </RadioGroup>
+
+
+    <Button
+        android:id="@+id/Custom_ok_bt"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Ok"/>
+
+</LinearLayout>

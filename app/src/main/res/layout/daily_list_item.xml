@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:gravity="center"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    tools:background="#ffaa00">
+
+    <ImageView
+        android:id="@+id/daily_list_temp_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/bg_temperature"/>
+
+    <ImageView
+        android:id="@+id/daily_list_icon_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/clear_day"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/daily_list_temp_view"
+        android:layout_toEndOf="@+id/daily_list_temp_view" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Wednesday"
+        android:textSize="25sp"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/daily_list_icon_view"
+        android:layout_toEndOf="@+id/daily_list_icon_view"
+        android:textColor="@android:color/white"
+        android:id="@+id/daily_list_day_text" />
+
+    <TextView
+        android:id="@+id/daily_list_temp_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100"
+        android:gravity="center"
+        android:layout_alignBottom="@+id/daily_list_temp_view"
+        android:layout_alignTop="@+id/daily_list_temp_view"
+        android:layout_alignLeft="@+id/daily_list_temp_view"
+        android:layout_alignRight="@+id/daily_list_temp_view"/>
+
+</RelativeLayout>
