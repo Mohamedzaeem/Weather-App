@@ -26,6 +26,8 @@
         <activity
             android:name="mohamedzaeem.com.weather.ui.More_detail"
             android:label="@string/title_activity_more_detail"></activity>
+
+        <service android:name=".Service.Receiver" />
     </application>
 
 </manifest>

@@ -1,5 +1,7 @@
 package mohamedzaeem.com.weather.ui;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -29,6 +31,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
@@ -41,6 +44,7 @@ import io.nlopez.smartlocation.location.config.LocationParams;
 import io.nlopez.smartlocation.location.providers.LocationGooglePlayServicesWithFallbackProvider;
 import mohamedzaeem.com.weather.Dialog.Customdialog;
 import mohamedzaeem.com.weather.R;
+import mohamedzaeem.com.weather.Service.Receiver;
 import mohamedzaeem.com.weather.weather.Current;
 import mohamedzaeem.com.weather.weather.Day;
 import mohamedzaeem.com.weather.weather.Forecast;
@@ -79,22 +83,25 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.inject(this);
 
         mProgressBar.setVisibility(View.INVISIBLE);
-        context = getApplicationContext();
-        CheckGpsStatus();
-        if(GpsStatus == true) {
-            Toast.makeText(this, "gps is enabaled", Toast.LENGTH_LONG).show();
-        }else {
-            Toast.makeText(this, "gps not enabaled", Toast.LENGTH_LONG).show();
-        }
+
+
+
+
+//        CheckGpsStatus();
+//        if(GpsStatus == true) {
+//            Toast.makeText(this, "gps is enabaled", Toast.LENGTH_LONG).show();
+//        }else {
+//            Toast.makeText(this, "gps not enabaled", Toast.LENGTH_LONG).show();
+//        }
     }
 
-    public void CheckGpsStatus(){
-
-        locationManager = (LocationManager)context.getSystemService(Context.LOCATION_SERVICE);
-
-        GpsStatus = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
-    }
-
+//    public void CheckGpsStatus(){
+//
+//        locationManager = (LocationManager)context.getSystemService(Context.LOCATION_SERVICE);
+//
+//        GpsStatus = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+//    }
+//
 
 
     @Override
@@ -201,6 +208,9 @@ public class MainActivity extends AppCompatActivity {
                                 @Override
                                 public void run() {
                                     updateDisplay();
+                                    Intent intent =new Intent(MainActivity.this, Receiver.class);
+                                    intent.putExtra("Current", mForecast.getCurrent().getTemperature());
+                                    startService(intent);
                                 }
                             });
                         } else {
