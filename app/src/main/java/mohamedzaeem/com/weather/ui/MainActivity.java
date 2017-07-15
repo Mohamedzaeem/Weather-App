@@ -6,6 +6,7 @@ import android.graphics.drawable.Drawable;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
+import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -65,6 +66,9 @@ public class MainActivity extends AppCompatActivity {
     private double latitude;
     private double longitude;
     private String mLocationName = "Default Locale";
+    Context context;
+    LocationManager locationManager ;
+    boolean GpsStatus ;
 
 
 
@@ -75,7 +79,23 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.inject(this);
 
         mProgressBar.setVisibility(View.INVISIBLE);
+        context = getApplicationContext();
+        CheckGpsStatus();
+        if(GpsStatus == true) {
+            Toast.makeText(this, "gps is enabaled", Toast.LENGTH_LONG).show();
+        }else {
+            Toast.makeText(this, "gps not enabaled", Toast.LENGTH_LONG).show();
+        }
     }
+
+    public void CheckGpsStatus(){
+
+        locationManager = (LocationManager)context.getSystemService(Context.LOCATION_SERVICE);
+
+        GpsStatus = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+    }
+
+
 
     @Override
     protected void onResume() {
