@@ -27,11 +27,12 @@ public class Receiver extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         int temp = intent.getIntExtra("Current", 0);
-        if (temp < 79) {
+        if (temp < 60) {
            Notification.Builder notificationBuilder = new Notification.Builder(this)
                    .setSmallIcon(R.drawable.ic_launcher)
-                   .setContentTitle("it getting cold")
-                   .setContentText(""+temp);
+                   .setContentTitle("it getting colder")
+                   .setContentText(""+temp)
+                    .setAutoCancel(true);
             Notification notifitation = notificationBuilder.build();
             startForeground(11,notifitation);
         }

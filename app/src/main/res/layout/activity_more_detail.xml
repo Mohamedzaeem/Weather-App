@@ -17,6 +17,15 @@
         android:visibility="invisible"></android.support.design.widget.TabLayout>
 
 
+    <TextView
+        android:id="@+id/Scroll_down_more_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Scroll down for more weather details."
+        android:textColor="@android:color/white"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        android:textSize="30sp"/>
 
 
       <android.support.v4.view.ViewPager
